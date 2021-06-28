@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "c83e0f87-6d56-424f-9ac1-dfad72edae96",
+		"name": "FileUpload",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sun - S3- File Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fileName",
+							"value": "myfile.png",
+							"type": "text"
+						},
+						{
+							"key": "bucketName",
+							"value": "amazon-santoyo",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44349/api/FileService/Delete?fileName=myfile.png&bucketName=amazon-santoyo&storeName=store-a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44349",
+					"path": [
+						"api",
+						"FileService",
+						"Delete"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "myfile.png"
+						},
+						{
+							"key": "bucketName",
+							"value": "amazon-santoyo"
+						},
+						{
+							"key": "storeName",
+							"value": "store-a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sun - S3- File Get",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "fileName",
+							"value": "myfile.png",
+							"type": "text"
+						},
+						{
+							"key": "bucketName",
+							"value": "amazon-santoyo",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44349/api/FileService/Delete?fileName=myfile.png&bucketName=amazon-santoyo&storeName=store-a",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44349",
+					"path": [
+						"api",
+						"FileService",
+						"Delete"
+					],
+					"query": [
+						{
+							"key": "fileName",
+							"value": "myfile.png"
+						},
+						{
+							"key": "bucketName",
+							"value": "amazon-santoyo"
+						},
+						{
+							"key": "storeName",
+							"value": "store-a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sun - S3- File Upload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "clientName",
+						"value": "santoyo-s3",
+						"type": "text"
+					},
+					{
+						"key": "fileName",
+						"value": "839393930",
+						"type": "text"
+					},
+					{
+						"key": "branchName",
+						"value": "store-152A",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"contentType": "multipart/form-data",
+							"type": "file",
+							"src": "/C:/Users/RR210250/Pictures/Icon/Imagemagick-logo.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44349/api/FileService/Upload",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44349",
+					"path": [
+						"api",
+						"FileService",
+						"Upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
