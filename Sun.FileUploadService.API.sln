@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sun.FileUploadService.API", "Sun.FileUploadService.API\Sun.FileUploadService.API.csproj", "{BF83E083-0F0E-4D59-815D-40DD8F07B9DF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sun.FileUpload.Client", "Sun.FileUpload.Client\Sun.FileUpload.Client.csproj", "{5141CF53-89EB-44F5-8AD3-49E3D7A9DD52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF83E083-0F0E-4D59-815D-40DD8F07B9DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF83E083-0F0E-4D59-815D-40DD8F07B9DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF83E083-0F0E-4D59-815D-40DD8F07B9DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF83E083-0F0E-4D59-815D-40DD8F07B9DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5141CF53-89EB-44F5-8AD3-49E3D7A9DD52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5141CF53-89EB-44F5-8AD3-49E3D7A9DD52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5141CF53-89EB-44F5-8AD3-49E3D7A9DD52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5141CF53-89EB-44F5-8AD3-49E3D7A9DD52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7335E4E0-7BA2-416C-BFFC-1A4CA3A4B606}
+	EndGlobalSection
+EndGlobal

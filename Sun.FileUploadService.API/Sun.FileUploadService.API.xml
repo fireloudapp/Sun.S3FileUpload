@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sun.FileUploadService.API</name>
+    </assembly>
+    <members>
+        <member name="T:Sun.FileUploadService.API.Controller.FileController">
+            <summary>
+            File upload service
+            </summary>
+        </member>
+        <member name="M:Sun.FileUploadService.API.Controller.FileController.IsHealthy">
+            <summary>
+            Check if the upload is healthy
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sun.FileUploadService.API.Utility.AmazonS3Upload">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Sun.FileUploadService.API.Utility.AmazonS3Upload.SendFileToS3(System.String,System.String,System.String,System.String,Microsoft.Extensions.Logging.ILogger,Microsoft.Extensions.Options.IOptions{Sun.FileUploadService.API.Utility.AWSConfig})">
+            <summary>
+            
+            </summary>
+            <param name="filePath"></param>
+            <param name="bucketName"></param>
+            <param name="subDirectoryInBucket"></param>
+            <param name="fileNameInS3"></param>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
