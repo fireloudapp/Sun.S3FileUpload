@@ -14,5 +14,6 @@ namespace Sun.FileUploadService.API.Utility
         public string AccessKey { get; set; }
         public string SecretKey { get; set; }
         public string S3Region { get; set; }
+        public string BucketName { get; set; }
     }
 }

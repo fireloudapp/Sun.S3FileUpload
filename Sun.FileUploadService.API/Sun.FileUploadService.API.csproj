@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\ClientA\" />
+    <Folder Include="Resources\ClientB\" />
   </ItemGroup>
 
 </Project>

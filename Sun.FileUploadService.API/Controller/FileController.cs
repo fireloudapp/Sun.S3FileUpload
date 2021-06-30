@@ -59,16 +59,20 @@ namespace Sun.FileUploadService.API.Controller
             try
             {
                 var file = Request.Form.Files[0];
-                //Request.Headers[""];
-                var folderName = Path.Combine("Resources", "Images");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+
+                //Directory.CreateDirectory("....");
                 
                 if (file.Length > 0)
                 {
                     string fileName, dbPath;
+                    FileMetaData fileMetaData = GetFileMetaData(Request);
+                    var folderName = Path.Combine("Resources", "Images", fileMetaData.ClientName, fileMetaData.BranchName);
+                    var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
+                    pathToSave = Directory.Exists(pathToSave) ? pathToSave : Directory.CreateDirectory(pathToSave).FullName;
+
                     string fullPath = SaveFile(file, folderName, pathToSave, out fileName, out dbPath);
                     var extension = Path.GetExtension(fileName);//used to upload file based on extension category.
-                    FileMetaData fileMetaData = GetFileMetaData(Request);
+                    
                     fileMetaData.Extension = extension;
                     dbPath = await UploadToS3(fileMetaData, dbPath);
 
@@ -89,21 +93,20 @@ namespace Sun.FileUploadService.API.Controller
         private async Task<string> UploadToS3(FileMetaData fileMetaData, string dbPath)
         {
             AmazonS3Upload s3Upload = new AmazonS3Upload();
-            string bucketName = fileMetaData.ClientName;  //"sat-s3-bucket-poc";
+            string bucketName = _awsSettings.Value.S3Access.BucketName; //it wont create dynamic bucket. it will pick the bucket name from settings. 
+            // -> if we assign this 'fileMetaData.ClientName;' dynamic bucket is created.
             string buckerFolder = _extFolder.ContainsKey(fileMetaData.Extension) ? _extFolder[fileMetaData.Extension] : "other";//Extension based folder selection.
             //var guid = Guid.NewGuid(); //GUID Disabled.
-            buckerFolder = fileMetaData.BranchName + @"/" + buckerFolder;//Bucket folder is storeName
+            buckerFolder = fileMetaData.ClientName + @"/" + fileMetaData.BranchName + @"/" + buckerFolder;//Bucket folder is storeName
             var s3FileName = fileMetaData.FileName + fileMetaData.Extension;
             var s3result = await s3Upload.SendFileToS3(dbPath, bucketName, buckerFolder, s3FileName, _logger, _awsSettings);
             if (s3result)
             {
-                //s3.ap-southeast-1.amazonaws.com
                 dbPath = $"https://{bucketName}.{_awsSettings.Value.S3Access.S3Region}/{buckerFolder}/{s3FileName}".ToLower();
                 //Example path generation.
                 //Ref: https://docs.aws.amazon.com/general/latest/gr/rande.html
                 //https://santoyo-s3-bucket-poc.s3.ap-southeast-1.amazonaws.com/png/Asia.png
                 //var s3URL = $"https://{bucketName}.s3.ap-southeast-1.amazonaws.com/{buckerFolder}/{fileName}";
-                
             }
 
             return dbPath;
