@@ -51,7 +51,9 @@ namespace Sun.FileUploadService.API.Controller
         {
             return Ok();
         }
-        
+
+        #region File Upload
+
         [Route("Upload")]
         [HttpPost, DisableRequestSizeLimit]
         public async Task< IActionResult> Upload()
@@ -89,7 +91,7 @@ namespace Sun.FileUploadService.API.Controller
                 return StatusCode(500, $"Internal Server Error : {ex}");
             }
         }
-
+        
         private async Task<string> UploadToS3(FileMetaData fileMetaData, string dbPath)
         {
             AmazonS3Upload s3Upload = new AmazonS3Upload();
@@ -136,9 +138,11 @@ namespace Sun.FileUploadService.API.Controller
             return fullPath;
         }
 
+        #endregion
+
         [Route("Delete")]
         [HttpPost]
-        public async Task<IActionResult> Delete(string fileName, string bucketName, string storeName)
+        public async Task<IActionResult> Delete(string fileName, string clientName, string storeName)
         {
             IActionResult ackResult = null;
 
@@ -148,7 +152,8 @@ namespace Sun.FileUploadService.API.Controller
                 var ext = Path.GetExtension(fileName);
                 var extFolder =  _extFolder.ContainsKey(ext) ? _extFolder[ext] : "other";
                 ////{storeName}/{extension}/{fileName}
-                fileName = storeName + @"/" + extFolder + @"/" + fileName;
+                string bucketName = _awsSettings.Value.S3Access.BucketName;                
+                fileName = clientName + @"/" + storeName + @"/" + extFolder + @"/" + fileName;
                 fileName = fileName.ToLower();
                 bool result = await s3Upload.DeleteS3File(bucketName, fileName, _logger, _awsSettings);
                 if (result)
@@ -170,7 +175,7 @@ namespace Sun.FileUploadService.API.Controller
 
         [Route("GetObject")]
         [HttpGet]
-        public async Task<IActionResult> GetPath(string fileName, string bucketName, string storeName)
+        public async Task<IActionResult> GetPath(string fileName, string clientName, string storeName)
         {
             IActionResult ackResult = null;
 
@@ -179,8 +184,9 @@ namespace Sun.FileUploadService.API.Controller
                 AmazonS3Upload s3Upload = new AmazonS3Upload();
                 var ext = Path.GetExtension(fileName);
                 var extFolder = _extFolder.ContainsKey(ext) ? _extFolder[ext] : "other";
+                string bucketName = _awsSettings.Value.S3Access.BucketName;
                 ////{storeName}/{extension}/{fileName}
-                fileName = storeName + @"/" + extFolder + @"/" + fileName;
+                fileName = clientName + @"/" + storeName + @"/" + extFolder + @"/" + fileName;
                 fileName = fileName.ToLower();
                 string result = await s3Upload.GetS3File(bucketName, fileName, _logger, _awsSettings);                
                 ackResult = Ok(result);
