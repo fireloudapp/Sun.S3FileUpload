@@ -29,6 +29,7 @@ namespace Sun.FileUploadService.API.Controller
         public FileController(ILogger<FileController> logger, IOptions<AWSConfig> awsSettings)
         {
             _logger = logger;
+            _logger.LogInformation("File Controller Initiated");
             _extFolder = new Dictionary<string, string>();
             _extFolder.Add(".png", "png");
             _extFolder.Add(".jpg", "jpg");
@@ -63,7 +64,7 @@ namespace Sun.FileUploadService.API.Controller
                 var file = Request.Form.Files[0];
 
                 //Directory.CreateDirectory("....");
-                
+                _logger.LogInformation("Upload Start");
                 if (file.Length > 0)
                 {
                     string fileName, dbPath;
@@ -71,24 +72,29 @@ namespace Sun.FileUploadService.API.Controller
                     var folderName = Path.Combine("Resources", "Images", fileMetaData.ClientName, fileMetaData.BranchName);
                     var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
                     pathToSave = Directory.Exists(pathToSave) ? pathToSave : Directory.CreateDirectory(pathToSave).FullName;
-
+                    _logger.LogInformation($"Upload Path to Save: {pathToSave}");
                     string fullPath = SaveFile(file, folderName, pathToSave, out fileName, out dbPath);
                     var extension = Path.GetExtension(fileName);//used to upload file based on extension category.
                     
                     fileMetaData.Extension = extension;
+                    _logger.LogInformation($"Upload to S3 Started");
                     dbPath = await UploadToS3(fileMetaData, dbPath);
-
+                    _logger.LogInformation($"Upload to S3 Completed {dbPath}");
                     System.IO.File.Delete(fullPath);//Remove temp file from Server.
+                    _logger.LogInformation("Upload End");
                     return Ok(new { dbPath });
                 }
                 else
                 {
+                    _logger.LogInformation("No file Selected to upload");
                     return BadRequest();
                 }
+                
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal Server Error : {ex}");
+                _logger.LogError(ex, "Upload");
+                return StatusCode(500, $"Internal Server Error : {ex}");                
             }
         }
         

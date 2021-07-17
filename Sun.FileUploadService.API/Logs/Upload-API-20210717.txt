@@ -1,0 +1,16 @@
+2021-07-17T16:04:05.3034367+05:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-07-17T16:04:05.3040897+05:30  [INF] Hosting environment: "Development" (c3307c92)
+2021-07-17T16:04:05.3042059+05:30  [INF] Content root path: "C:\Test\Sun\Sun.S3FileUpload\Sun.FileUploadService.API" (b5d60022)
+2021-07-17T16:06:29.1342334+05:30 80000010-0005-fc00-b63f-84710c7967bb [INF] File Controller Initiated (2f3f5d32)
+2021-07-17T16:06:29.3869717+05:30 80000010-0005-fc00-b63f-84710c7967bb [ERR] Upload (e268021f)
+System.InvalidOperationException: Incorrect Content-Type: 
+   at Microsoft.AspNetCore.Http.Features.FormFeature.ReadForm()
+   at Microsoft.AspNetCore.Http.DefaultHttpRequest.get_Form()
+   at Sun.FileUploadService.API.Controller.FileController.Upload() in C:\Test\Sun\Sun.S3FileUpload\Sun.FileUploadService.API\Controller\FileController.cs:line 64
+2021-07-17T16:07:28.7145156+05:30 80000011-0005-fc00-b63f-84710c7967bb [INF] File Controller Initiated (2f3f5d32)
+2021-07-17T16:07:28.7522032+05:30 80000011-0005-fc00-b63f-84710c7967bb [INF] Upload Start (0c869f81)
+2021-07-17T16:07:28.7544422+05:30 80000011-0005-fc00-b63f-84710c7967bb [INF] Upload Path to Save: C:\Test\Sun\Sun.S3FileUpload\Sun.FileUploadService.API\Resources\Images\ClientName\store-152A (20ce39a7)
+2021-07-17T16:07:28.7768954+05:30 80000011-0005-fc00-b63f-84710c7967bb [INF] Upload to S3 Started (89ad6b3f)
+2021-07-17T16:07:30.1022423+05:30 80000011-0005-fc00-b63f-84710c7967bb [INF] Uploaded to S3 Bucket (04f52d2f)
+2021-07-17T16:07:30.1039949+05:30 80000011-0005-fc00-b63f-84710c7967bb [INF] Upload to S3 Completed https://suntoyo-aws-s3.s3.ap-southeast-1.amazonaws.com/clientname/store-152a/png/powerbi.png (be986f2b)
+2021-07-17T16:07:30.1060203+05:30 80000011-0005-fc00-b63f-84710c7967bb [INF] Upload End (450ae09e)

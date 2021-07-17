@@ -13,11 +13,32 @@ namespace Sun.FileUploadService.API
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            ILogger logger = null;
+            try
+            {
+                ILoggerFactory loggerFactory = new LoggerFactory();
+                loggerFactory.AddFile("Logs/StartUp-API-{Date}.txt");
+                logger = loggerFactory.CreateLogger<Program>();
+                logger.LogInformation("Web API Upload about to Start.");
+                System.IO.Directory.CreateDirectory(@"Resources\Images");
+
+                CreateHostBuilder(args).Build().Run();
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Main Method");
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(logBuilder =>
+                {
+                    logBuilder.ClearProviders(); // removes all providers from LoggerFactory
+                    logBuilder.AddConsole();
+                    //logBuilder.AddFile("Logs/Upload-API-{Date}.txt");
+                    logBuilder.AddTraceSource("Information"); // Add Trace listener provider
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

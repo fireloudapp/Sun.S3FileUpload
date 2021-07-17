@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = Sun.FileUpload.Client
+build_property.ProjectDir = C:\Test\Sun\Sun.S3FileUpload\Sun.FileUpload.Client\
