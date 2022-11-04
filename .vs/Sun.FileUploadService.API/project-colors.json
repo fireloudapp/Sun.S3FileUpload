@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5141cf53-89eb-44f5-8ad3-49e3d7a9dd52": {
+      "ProjectGuid": "5141cf53-89eb-44f5-8ad3-49e3d7a9dd52",
+      "DisplayName": "Sun.FileUpload.Client",
+      "ColorIndex": 0
+    },
+    "bf83e083-0f0e-4d59-815d-40dd8f07b9df": {
+      "ProjectGuid": "bf83e083-0f0e-4d59-815d-40dd8f07b9df",
+      "DisplayName": "Sun.FileUploadService.API",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

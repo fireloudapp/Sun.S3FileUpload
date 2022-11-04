@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "aUrHLtFMZwChDJO47AYy9EE3OIxDXorIO/+QcuIb0IgS1gMbVbsCLts+eRqSahOToMsIzhkC3M/jlBcHV7rX8g==",
+  "dgSpecHash": "fTKApGsDnOJ4RCAQk3sRErRBUi/Gl/bxXOf9vBr6bEEjhZfOKnabFi7uIVFaSUuXkckb7ibjLIE2zL7WQIkn7A==",
   "success": true,
   "projectFilePath": "C:\\Test\\Sun\\Sun.S3FileUpload\\Sun.FileUpload.Client\\Sun.FileUpload.Client.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\RR210250\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.14\\microsoft.netcore.app.host.win-x64.3.1.14.nupkg.sha512"
+    "C:\\Users\\RR210250\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.20\\microsoft.netcore.app.host.win-x64.3.1.20.nupkg.sha512"
   ],
   "logs": []
 }

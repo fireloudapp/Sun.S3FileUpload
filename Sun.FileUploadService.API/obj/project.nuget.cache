@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Dyy/VhSKMRkirEljHREaXCHI5gtNjePwI6Anz9NB1DgGWgoTdxOgHlgxLxy37520yYmZhYWBrZeEs+8DcwXYNg==",
+  "dgSpecHash": "DMvrMKyKMfNjyjerzh9JR95/McdNX39VCBNh2VnYk2qIs+7auMQpDpNhcCSCz3W5UW3ZiszWkDsErtqqTZiAHg==",
   "success": true,
   "projectFilePath": "C:\\Test\\Sun\\Sun.S3FileUpload\\Sun.FileUploadService.API\\Sun.FileUploadService.API.csproj",
   "expectedPackageFiles": [
@@ -76,7 +76,7 @@
     "C:\\Users\\RR210250\\.nuget\\packages\\system.threading.tasks\\4.0.11\\system.threading.tasks.4.0.11.nupkg.sha512",
     "C:\\Users\\RR210250\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.3\\system.threading.tasks.extensions.4.5.3.nupkg.sha512",
     "C:\\Users\\RR210250\\.nuget\\packages\\system.threading.timer\\4.0.1\\system.threading.timer.4.0.1.nupkg.sha512",
-    "C:\\Users\\RR210250\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.14\\microsoft.netcore.app.host.win-x64.3.1.14.nupkg.sha512"
+    "C:\\Users\\RR210250\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.20\\microsoft.netcore.app.host.win-x64.3.1.20.nupkg.sha512"
   ],
   "logs": []
 }
